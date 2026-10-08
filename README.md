@@ -87,11 +87,9 @@ sudo systemctl enable nginx
 sudo systemctl status nginx
 ```
 
-After starting Nginx, the default Nginx web page was verified using the EC2 Public IPv4 address.
+After starting Nginx, the web server was configured and the setup was continued with Route 53 DNS configuration.
 
-![Nginx Default Page](Screenshots/DNS-Attached-Successfully.png)
-
-> **Note:** The screenshot above confirms that the Nginx web server was responding from the EC2 instance.
+> **Note:** The final website access is verified through the configured domain after completing the Route 53 and GoDaddy nameserver configuration.
 
 ---
 
@@ -201,14 +199,15 @@ Website Accessible Through Domain
 ```text
 Project/
 ├── README.md
-├── Architecture.png
-├── Domain-Purchased.png
-├── Instance-Launched.png
-├── Nginx-Installed-Start-Enable.png
-├── Hosted-Zone.png
-├── Record-added.png
-├── DNS-Attached-Successfully.png
-└── DNS-Checker.png
+└── Screenshots/
+    ├── Architecture.png
+    ├── Domain-Purchased.png
+    ├── Instance-Launched.png
+    ├── Nginx-Installed-Start-Enable.png
+    ├── Hosted-Zone.png
+    ├── Record-added.png
+    ├── DNS-Attached-Successfully.png
+    └── DNS-Checker.png
 ```
 
 ---
@@ -216,6 +215,12 @@ Project/
 # Final Result
 
 The domain was successfully connected to the EC2 instance through **Amazon Route 53 DNS**, while **Nginx** served the website from the EC2 server.
+
+### Website Access Through Domain
+
+The website was successfully accessed using the configured domain name after completing the Route 53 DNS and GoDaddy nameserver configuration.
+
+![Website Access Through Domain](Screenshots/DNS-Attached-Successfully.png)
 
 ### Final Architecture
 
