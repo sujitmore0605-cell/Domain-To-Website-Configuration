@@ -8,7 +8,7 @@ The practical covers the complete flow from purchasing the domain to verifying D
 
 ## Architecture
 
-![AWS Architecture](Architecture.png)
+![AWS Architecture](Screenshots/Architecture.png)
 
 ### Architecture Flow
 
@@ -43,7 +43,7 @@ The practical covers the complete flow from purchasing the domain to verifying D
 
 The first step was to purchase a domain from GoDaddy and access its domain management/DNS settings.
 
-![Domain Purchased](Domain-Purchased.png)
+![Domain Purchased](Screenshots/Domain-Purchased.png)
 
 ### Action Performed
 
@@ -58,7 +58,7 @@ The first step was to purchase a domain from GoDaddy and access its domain manag
 
 An EC2 instance was launched in AWS to act as the web server.
 
-![EC2 Instance Launched](Instance-Launched.png)
+![EC2 Instance Launched](Screenshots/Instance-Launched.png)
 
 ### Configuration
 
@@ -75,7 +75,7 @@ The EC2 instance was successfully launched and reached the running state.
 
 The EC2 instance was accessed through **SSH using Git Bash on Windows**.
 
-![Nginx Installed](Nginx-Installed-Start-Enable.png)
+![Nginx Installed](Screenshots/Nginx-Installed-Start-Enable.png)
 
 ### Commands Used
 
@@ -84,11 +84,12 @@ sudo yum update
 sudo yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
+sudo systemctl status nginx
 ```
 
 After starting Nginx, the default Nginx web page was verified using the EC2 Public IPv4 address.
 
-![Nginx Default Page](DNS-Attached-Successfully.png)
+![Nginx Default Page](Screenshots/DNS-Attached-Successfully.png)
 
 > **Note:** The screenshot above confirms that the Nginx web server was responding from the EC2 instance.
 
@@ -98,7 +99,7 @@ After starting Nginx, the default Nginx web page was verified using the EC2 Publ
 
 Next, a Hosted Zone was created in **Amazon Route 53** for the purchased domain.
 
-![Route 53 Hosted Zone](Hosted-Zone.png)
+![Route 53 Hosted Zone](Screenshots/Hosted-Zone.png)
 
 ### Configuration
 
@@ -113,14 +114,15 @@ Next, a Hosted Zone was created in **Amazon Route 53** for the purchased domain.
 
 An **A record** was created in the Route 53 hosted zone to point the domain to the EC2 instance's Public IPv4 address.
 
-![Route 53 A Record](Record-added.png)
+![Route 53 A Record](Screenshots/Record-added.png)
 
 ### Record Configuration
 
 ```text
-Record Type: A
-Value: EC2 Public IPv4 Address
-Routing Policy: Simple
+- Record name: cloudwithsujit.online
+- Record Type: A
+- Value: EC2 Public IPv4 Address
+- Routing Policy: Simple
 ```
 
 The A record connects the domain name with the EC2 web server.
@@ -130,8 +132,6 @@ The A record connects the domain name with the EC2 web server.
 ## 6. Update Nameservers in GoDaddy
 
 The Route 53 nameservers were then configured in the GoDaddy domain management settings.
-
-![DNS Attached Successfully](DNS-Attached-Successfully.png)
 
 ### Process
 
@@ -148,7 +148,7 @@ After this change, DNS queries for the domain are handled by the Route 53 hosted
 
 A DNS propagation checker was used to verify whether the domain was resolving from different locations around the world.
 
-![DNS Checker](DNS-Checker.png)
+![DNS Checker](Screenshots/DNS-Checker.png)
 
 ### Verification
 
